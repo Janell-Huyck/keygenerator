@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from generator.urls import urlpatterns as generator_urls
+from decoder.urls import urlpatterns as decoder_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += generator_urls
+urlpatterns += decoder_urls
