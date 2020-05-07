@@ -5,8 +5,30 @@
     <link rel="stylesheet" href="{% static 'css/decoder.css' %}">
 </head>
 <body>
-    {% include "decoder.html" %}   
-    {% include "generator.html"%} 
-</body>
+<h1>Key Generator</h1>
+<hr>
+<h2> Click the button below to generate a new random key... </h2>
+<br>
 
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn" value="Generate Key" name="make_key">
+</form>
+<p> Your new key is: </p>
+{{new_key}}
+<br>
+<hr>
+<h2> Type in a test key below to see if it is a valid key... </h2>
+<br>
+<form action="#" method="get">
+ <input type="text" name="test_key" size="24"/>
+ <input type="submit" class="btn" value="Test Key < 20?" name="test_button">
+</form>
+<p> Key being tested: </p>
+{{ test_key }}<br>
+<p> Result </p>
+{{ is_good_key }}
+
+</body>
 </html>
